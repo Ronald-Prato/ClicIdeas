@@ -1,0 +1,222 @@
+.formcommon-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    background: #f1f3f3;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-bottom: 2em;
+}
+
+.formcommon-box > p {
+    margin: 0;
+}
+
+.load-animation {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,.4);
+    z-index: 100;    
+    color: steelblue;
+}
+
+.loading-title {
+    color: white;
+    font-weight: bolder;
+    font-size: 1.1em;
+}
+
+.micro-loading-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-icon {
+    font-size: 2em;
+    
+}
+
+.correo-responsable-input, .ied-designada-input, .iednodo-input, .nodo-input,
+.otra-tematica-input, .persona-responsable-input, .plantilla-input, 
+.tel-responsable-input, .tematica-proyecto-input, .titulo-proyecto-input {
+    transform: scale(.9)
+}
+
+.info-box {
+    box-shadow: 0px 3px 5px gray;
+    border-bottom: inset 5px steelblue;
+    background: white;
+    margin-top: 1.5em;  
+    height: 85%;
+    width: 20%;
+    padding: 2em;
+}
+.info-box > p {
+    margin: 0;
+    font-size: .8em;
+}
+
+.links-descarga {
+    margin-top: 1em;
+}
+.links-descarga > a {
+    font-size: .85em;
+}
+
+.formcommon-box > p {
+    font-size: .85em;
+}
+
+.formcommon-box {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-gap: 1.5em;
+    width: 75%;
+    height: 85%;
+    padding: 2em;
+    box-shadow: 0px 3px 5px gray;
+    border-bottom: inset 5px steelblue;
+    background: white;
+    position: relative;
+    margin-top: 1.5em;    
+}
+
+.persona-responsable-title {
+    grid-column: 1/4;
+    grid-row: 1/2;  
+}
+.persona-responsable-input {
+    grid-column: 5/13;
+    grid-row: 1/2;  
+}
+
+
+.correo-responsable-title {
+    grid-column: 1/4;
+    grid-row: 2/3;  
+}
+.correo-responsable-input {
+    grid-column: 5/13;
+    grid-row: 2/3;  
+}
+
+
+.tel-responsable-title {
+    grid-column: 1/4;
+    grid-row: 3/4;
+}
+.tel-responsable-input {
+    grid-column: 5/13;
+    grid-row: 3/4;
+}
+
+
+.titulo-proyecto-title {
+    grid-column: 1/4;
+    grid-row: 4/5;
+}
+.titulo-proyecto-input {
+    grid-column: 5/13;
+    grid-row: 4/5;
+}
+
+
+.tematica-proyecto-title {
+    grid-column: 1/4;
+    grid-row: 5/6;
+}
+.tematica-proyecto-input {
+    grid-column: 5/13;
+    grid-row: 5/6;
+}
+
+
+.otra-tematica-title {
+    grid-column: 1/4;
+    grid-row: 6/7;
+}
+.otra-tematica-input {
+    grid-column: 5/13;
+    grid-row: 6/7;
+}
+
+
+.plantilla-title {
+    grid-column: 1/5;
+    grid-row: 8/9;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+}
+.plantilla-input {
+    grid-column: 4/7;
+    grid-row: 8/9;
+    transform: scale(.8);
+}
+.anexos {
+    grid-column: 8/9;
+    grid-row: 8/9;
+    align-self: center;
+}
+
+.anexos-input {
+    grid-column: 9/12;
+    grid-row: 8/9;
+    
+}
+
+
+.send-btn-container {
+    position: absolute;
+    bottom: 4%;
+    right: 3%;
+}
+
+.plantilla-document-name {
+    grid-column: 5/13;
+    grid-row: 8/9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-logo-container {
+    position: absolute;
+    top: 0;
+    left: 3%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.img-logo {
+    width: 65px;
+}
+.img-logo2 {
+    width: 180px;
+}
+.img-logo3 {
+    width: 170px    ;
+}
+
+.checkbox-container {
+    position: absolute;
+    bottom: 4%;
+    left: 5%;
+    transform: scale(1.1)
+}

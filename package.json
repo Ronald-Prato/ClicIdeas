@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.23.2",
+    "aws-amplify": "^1.1.38",
+    "filepond": "^4.6.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.1"
+    "react-filepond": "^7.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-scripts": "3.1.1",
+    "sweetalert2": "^8.17.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": "react-app"

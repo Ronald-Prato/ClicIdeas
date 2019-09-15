@@ -1,0 +1,187 @@
+.formred-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    background: #f1f3f3;
+    box-sizing: border-box;
+    overflow: hidden;
+    padding-bottom: 2em;
+}
+
+.info-box-red {
+    box-shadow: 0px 3px 5px gray;
+    border-bottom: inset 5px steelblue;
+    background: white;
+    height: 85%;
+    width: 20%;
+    padding: 2em;
+}
+.info-box-red > p {
+    margin: 0;
+    font-size: .9em;
+}
+
+.formred-box > p {
+    margin: 0;
+    align-self: center;
+    font-size: .85em;
+}
+
+.formred-box {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    grid-gap: .6em;
+    width: 75%;
+    height: 85%;
+    padding: 2em;
+    box-shadow: 0px 3px 5px gray;
+    border-bottom: inset 5px steelblue;
+    background: white;
+    position: relative;
+}
+
+.correo-responsable-input-red, .ied-designada-input-red, .iednodo-input-red, .nodo-input,
+.otra-tematica-input-red, .persona-responsable-input-red, .plantilla-input-red, 
+.tel-responsable-input-red, .tematica-proyecto-input-red, .titulo-proyecto-input-red {
+    transform: scale(.9)
+}
+.filepond {
+    transform: scale(.8)
+}
+
+.nodo-title {
+    grid-column: 1/4;
+    grid-row: 1/2; 
+}
+.nodo-input {
+    grid-column: 5/13;
+    grid-row: 1/2; 
+    transform: scale(.9)
+}
+
+
+.iednodo-title-red {
+    grid-column: 1/4;
+    grid-row: 2/3; 
+}
+.iednodo-input-red {
+    grid-column: 5/13;
+    grid-row: 2/3; 
+}
+
+
+.ied-designada-title-red {
+    grid-column: 1/4;
+    grid-row: 3/4; 
+}
+.ied-designada-input-red {
+    grid-column: 5/13;
+    grid-row: 3/4; 
+}
+
+.persona-responsable-title-red {
+    grid-column: 1/4;
+    grid-row: 4/5;  
+}
+.persona-responsable-input-red {
+    grid-column: 5/13;
+    grid-row: 4/5;  
+}
+
+
+.correo-responsable-title-red {
+    grid-column: 1/4;
+    grid-row: 5/6;  
+}
+.correo-responsable-input-red {
+    grid-column: 5/13;
+    grid-row: 5/6;  
+}
+
+
+.tel-responsable-title-red {
+    grid-column: 1/4;
+    grid-row: 6/7;
+}
+.tel-responsable-input-red {
+    grid-column: 5/13;
+    grid-row: 6/7;
+}
+
+
+.titulo-proyecto-title-red {
+    grid-column: 1/4;
+    grid-row: 7/8;
+}
+.titulo-proyecto-input-red {
+    grid-column: 5/13;
+    grid-row: 7/8;
+}
+
+
+.tematica-proyecto-title-red {
+    grid-column: 1/4;
+    grid-row: 8/9;
+}
+.tematica-proyecto-input-red {
+    grid-column: 5/13;
+    grid-row: 8/9;
+}
+
+
+.otra-tematica-title-red {
+    grid-column: 1/4;
+    grid-row: 9/10;
+}
+.otra-tematica-input-red {
+    grid-column: 5/13;
+    grid-row: 9/10;
+}
+
+
+.plantilla-title-red {
+    grid-column: 1/4;
+    grid-row: 10/11;
+}
+.plantilla-input-red {
+    grid-column: 4/7;
+    grid-row: 10/11;
+    transform: scale(.9);
+}
+.anexos-red {
+    grid-column: 8/9;
+    grid-row: 10/11;
+}
+.anexos-input-red {
+    grid-column: 9/12;
+    grid-row: 10/11;
+}
+
+.plantilla-document-name-red {
+    grid-column: 6/13;
+    grid-row: 10/11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.plantilla-document-name-red2 {
+    grid-column: 10/13;
+    grid-row: 10/11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.send-btn-container-red {
+    position: absolute;
+    bottom: 3%;
+    right: 3%;
+}
+
+.edit-file-btn {
+    margin-top: 2em;
+}

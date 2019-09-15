@@ -1,0 +1,161 @@
+﻿﻿type FormCommon {
+	correoResponsable: String!
+	downloadRoute: String!
+	id: ID!
+	otraTematica: String
+	personaResponsable: String!
+	telefonoResponsable: String!
+	tematicaProyecto: String!
+	tituloProyecto: String!
+	madeBy: String!
+}
+
+input FormCommonInput {
+	correoResponsable: String!
+	downloadRoute: String!
+	otraTematica: String
+	personaResponsable: String!
+	telefonoResponsable: String!
+	tematicaProyecto: String!
+	tituloProyecto: String!
+	madeBy: String!
+}
+
+input FormCommonUpdate {
+	personaResponsable: String
+	correoResponsable: String
+	telefonoResponsable: String
+	tituloProyecto: String
+	tematicaProyecto: String
+	otraTematica: String
+	downloadRoute: String
+}
+
+type FormRed {
+	correoResponsable: String!
+	downloadRoute: String!
+	id: ID!
+	iedDesignada: String!
+	iedNodo: String!
+	numeroNodo: Int!
+	otraTematica: String
+	personaResponsable: String!
+	telefonoResponsable: String!
+	tematicaProyecto: String!
+	tituloProyecto: String!
+	madeBy: String!
+}
+
+input FormRedInput {
+	correoResponsable: String!
+	downloadRoute: String!
+	iedDesignada: String!
+	iedNodo: String!
+	numeroNodo: Int!
+	otraTematica: String
+	personaResponsable: String!
+	telefonoResponsable: String!
+	tematicaProyecto: String!
+	tituloProyecto: String!
+	madeBy: String!
+}
+
+input FormRedUpdate {
+	iedDesignada: String
+	iedNodo: String
+	numeroNodo: Int
+	personaResponsable: String
+	correoResponsable: String
+	telefonoResponsable: String
+	tituloProyecto: String
+	tematicaProyecto: String
+	otraTematica: String
+	downloadRoute: String
+}
+
+type ModelFormCommonConnection {
+	items: [FormCommon]
+}
+
+type ModelFormRedConnection {
+	items: [FormRed]
+}
+
+input ModelStringFilterInput {
+	beginsWith: String
+	between: [String]
+	contains: String
+	eq: String
+	ge: String
+	gt: String
+	le: String
+	lt: String
+	ne: String
+	notContains: String
+}
+
+input ModelTodoFilterInput {
+	incentivo: ModelStringFilterInput
+	localidad: ModelStringFilterInput
+	nombreie: ModelStringFilterInput
+	referencia: ModelStringFilterInput
+	madeBy: ModelStringFilterInput
+}
+
+type ModelUserConnection {
+	items: [User]
+}
+
+type Mutation {
+	createFormCommon(input: FormCommonInput!): FormCommon
+	createFormRed(input: FormRedInput!): FormRed
+	createUser(input: UserInput!): User
+	updateUser(id: ID!, input: UpdateUserInput!): User
+	updateFormCommon(id: ID!, input: FormCommonUpdate!): FormCommon
+	updateFormRed(id: ID!, input: FormRedUpdate!): FormRed
+}
+
+type Query {
+	getAllFormCommon: [FormCommon]
+	getAllFormRed: [FormRed]
+	getAllUsers: [User]
+	getFilteredUsers(incentivo: String!): [User]
+	getFormCommon(id: ID!): FormCommon
+	getFormRed(id: ID!): FormRed
+	getUser(id: ID!): User
+	listUsers(filter: ModelTodoFilterInput, limit: Int, nextToken: String): ModelUserConnection
+	listFormsCommon(filter: ModelTodoFilterInput, limit: Int, nextToken: String): ModelFormCommonConnection
+	listFormsRed(filter: ModelTodoFilterInput, limit: Int, nextToken: String): ModelFormRedConnection
+}
+
+type Subscription {
+	onCreateFormCommon: FormCommon
+		@aws_subscribe(mutations: ["createFormCommon"])
+	onCreateFormRed: FormRed
+		@aws_subscribe(mutations: ["createFormRed"])
+	onCreateUser: User
+		@aws_subscribe(mutations: ["createUser"])
+}
+
+input UpdateUserInput {
+	referencia: String!
+}
+
+type User {
+	codane: String!
+	id: ID!
+	incentivo: String!
+	localidad: String!
+	nombreie: String!
+	referencia: String!
+}
+
+input UserInput {
+	codane: String!
+	estado: String
+	id: ID!
+	incentivo: String!
+	localidad: String!
+	nombreie: String!
+	referencia: String
+}

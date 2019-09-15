@@ -1,0 +1,19 @@
+{
+    "ideas": {
+        "awscloudformation": {
+            "AuthRoleName": "clic-ideas-20190909143415-authRole",
+            "UnauthRoleArn": "arn:aws:iam::574246640042:role/clic-ideas-20190909143415-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::574246640042:role/clic-ideas-20190909143415-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "clic-ideas-20190909143415-deployment",
+            "UnauthRoleName": "clic-ideas-20190909143415-unauthRole",
+            "StackName": "clic-ideas-20190909143415",
+            "StackId": "arn:aws:cloudformation:us-east-2:574246640042:stack/clic-ideas-20190909143415/cff94540-d338-11e9-85cb-0658482cfd4e"
+        },
+        "categories": {
+            "auth": {
+                "clicdb7e463c": {}
+            }
+        }
+    }
+}

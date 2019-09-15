@@ -1,0 +1,17 @@
+.splash-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(200%);
+    animation: toTop 300ms forwards;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+@keyframes toTop {
+    from { transform: translateY(100%) }
+    to { transform: translateY(0) }
+}
