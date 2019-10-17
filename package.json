@@ -7,6 +7,7 @@
     "aws-amplify": "^1.1.38",
     "filepond": "^4.6.1",
     "react": "^16.9.0",
+    "react-csv": "^1.1.1",
     "react-dom": "^16.9.0",
     "react-filepond": "^7.0.1",
     "react-router-dom": "^5.0.1",
@@ -18,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && firebase deploy --only hosting"
   },
   "eslintConfig": {
     "extends": "react-app"

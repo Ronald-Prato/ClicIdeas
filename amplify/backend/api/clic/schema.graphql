@@ -1,6 +1,6 @@
 ﻿﻿type FormCommon {
 	correoResponsable: String!
-	downloadRoute: String!
+	downloadRoute: String
 	id: ID!
 	otraTematica: String
 	personaResponsable: String!
@@ -8,17 +8,23 @@
 	tematicaProyecto: String!
 	tituloProyecto: String!
 	madeBy: String!
+	c1: Boolean!
+	c2: Boolean!
+	retro: Boolean
 }
 
 input FormCommonInput {
 	correoResponsable: String!
-	downloadRoute: String!
+	downloadRoute: String
 	otraTematica: String
 	personaResponsable: String!
 	telefonoResponsable: String!
 	tematicaProyecto: String!
 	tituloProyecto: String!
 	madeBy: String!
+	c1: Boolean!
+	c2: Boolean!
+	retro: Boolean
 }
 
 input FormCommonUpdate {
@@ -29,11 +35,14 @@ input FormCommonUpdate {
 	tematicaProyecto: String
 	otraTematica: String
 	downloadRoute: String
+	c1: Boolean
+	c2: Boolean
+	retro: Boolean
 }
 
 type FormRed {
 	correoResponsable: String!
-	downloadRoute: String!
+	downloadRoute: String
 	id: ID!
 	iedDesignada: String!
 	iedNodo: String!
@@ -44,11 +53,14 @@ type FormRed {
 	tematicaProyecto: String!
 	tituloProyecto: String!
 	madeBy: String!
+	c1: Boolean!
+	c2: Boolean!
+	retro: Boolean
 }
 
 input FormRedInput {
 	correoResponsable: String!
-	downloadRoute: String!
+	downloadRoute: String
 	iedDesignada: String!
 	iedNodo: String!
 	numeroNodo: Int!
@@ -58,6 +70,9 @@ input FormRedInput {
 	tematicaProyecto: String!
 	tituloProyecto: String!
 	madeBy: String!
+	c1: Boolean!
+	c2: Boolean!
+	retro: Boolean
 }
 
 input FormRedUpdate {
@@ -71,6 +86,9 @@ input FormRedUpdate {
 	tematicaProyecto: String
 	otraTematica: String
 	downloadRoute: String
+	c1: Boolean
+	c2: Boolean
+	retro: Boolean
 }
 
 type ModelFormCommonConnection {
@@ -95,6 +113,7 @@ input ModelStringFilterInput {
 }
 
 input ModelTodoFilterInput {
+	id: ModelStringFilterInput
 	incentivo: ModelStringFilterInput
 	localidad: ModelStringFilterInput
 	nombreie: ModelStringFilterInput
@@ -113,6 +132,8 @@ type Mutation {
 	updateUser(id: ID!, input: UpdateUserInput!): User
 	updateFormCommon(id: ID!, input: FormCommonUpdate!): FormCommon
 	updateFormRed(id: ID!, input: FormRedUpdate!): FormRed
+	retroRed(id: ID!, retro: Boolean!): FormRed
+	retroCommon(id: ID!, retro: Boolean!): FormCommon
 }
 
 type Query {
@@ -148,6 +169,8 @@ type User {
 	localidad: String!
 	nombreie: String!
 	referencia: String!
+	name: String
+	evaluated: [String]
 }
 
 input UserInput {
@@ -158,4 +181,6 @@ input UserInput {
 	localidad: String!
 	nombreie: String!
 	referencia: String
+	name: String
+	evaluated: [String]
 }

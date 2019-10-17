@@ -113,6 +113,7 @@ const FormCommon = props => {
                 tituloProyecto: response.tituloProyecto,
                 telfResponsable: response.telefonoResponsable
             })
+            await setOtraTematica(response.otraTematica)
             await setCurrentRequestID(response.id)
             await setCheckInputs({ c1: response.c1, c2: response.c2 })
             await getCurrentAnexFile(response.downloadRoute, userObj.id)
@@ -166,24 +167,29 @@ const FormCommon = props => {
     }
 
     const sendForm = async () => {
-        await setLoading(true)
-        let uploadFormRed = await API.graphql(graphqlOperation(mutation.createFormRed, {
-            input: {
-                numeroNodo: fields.nodo,
-                iedNodo: fields.iedNodo,
-                iedDesignada: fields.iedDesignada,
-                personaResponsable: fields.personaResponsable,
-                correoResponsable: fields.correoResponsable,
-                telefonoResponsable: fields.telfResponsable,
-                tituloProyecto: fields.tituloProyecto,
-                tematicaProyecto: fields.tematicaProyecto,
-                downloadRoute: file2.filename2,
-                otraTematica: otraTematica || " ",
-                madeBy: state.userData.username,
-                c1: checkInputs.c1,
-                c2: checkInputs.c2
-            }
-        }))
+        setLoading(true)
+        let uploadFormRed
+        try {
+            let uploadFormRed = await API.graphql(graphqlOperation(mutation.createFormRed, {
+                input: {
+                    numeroNodo: fields.nodo,
+                    iedNodo: fields.iedNodo,
+                    iedDesignada: fields.iedDesignada,
+                    personaResponsable: fields.personaResponsable,
+                    correoResponsable: fields.correoResponsable,
+                    telefonoResponsable: fields.telfResponsable,
+                    tituloProyecto: fields.tituloProyecto,
+                    tematicaProyecto: fields.tematicaProyecto,
+                    downloadRoute: file2.filename2 || " ",
+                    otraTematica: otraTematica || " ",
+                    madeBy: state.userData.username,
+                    c1: checkInputs.c1,
+                    c2: checkInputs.c2,
+                    retro: false
+                }
+            }))
+            console.log(uploadFormRed)
+        } catch (error) { console.log("ERROR => ", error) }
 
         let updateReference = await API.graphql(graphqlOperation(`
             mutation {
@@ -209,15 +215,14 @@ const FormCommon = props => {
                 .then(res => {
                     setLoading(false)
                     setUpload({ ...upload, show: false })
-                    showAlert()
+                    showAlert("create")
                     checkCurrentSession()
                 })
                 .catch(err => { setLoading(false); console.log(err) });
-        } else {
-            setUpload({ ...upload, show: false })
-            showAlert()
-            checkCurrentSession()
         }
+        setUpload({ ...upload, show: false })
+        showAlert("create")
+        checkCurrentSession()
         // await console.log(uploadedFormCommon)
     }
 
@@ -231,7 +236,7 @@ const FormCommon = props => {
                     telefonoResponsable: "${fields.telfResponsable}",
                     tituloProyecto: "${fields.tituloProyecto}",
                     tematicaProyecto: "${fields.tematicaProyecto}",
-                    downloadRoute: "${file2.filename2}",
+                    downloadRoute: "${file2.filename2 || anx.name}",
                     otraTematica: "${otraTematica || " "}",
                     iedDesignada: "${fields.iedDesignada}",
                     iedNodo: "${fields.iedNodo}",
@@ -279,15 +284,14 @@ const FormCommon = props => {
                 .then(res => {
                     setLoading(false)
                     setUpload({ ...upload, show: false })
-                    showAlert()
+                    showAlert("update")
                     checkCurrentSession()
                 })
                 .catch(err => { setLoading(false); console.log(err) });
-        } else {
-            setUpload({ ...upload, show: false })
-            showAlert()
-            checkCurrentSession()
         }
+        setUpload({ ...upload, show: false })
+        showAlert("update")
+        checkCurrentSession()
     }
 
 
@@ -304,11 +308,17 @@ const FormCommon = props => {
         timer: 3000
     })
 
-    const showAlert = () => {
-        Toast.fire({
-            type: 'success',
-            title: 'Postulación enviada exitosamente',
-        })
+    const showAlert = option => {
+        option === "create" ?
+            Toast.fire({
+                type: 'success',
+                title: 'Postulación enviada exitosamente',
+            })
+            :
+            Toast.fire({
+                type: 'success',
+                title: 'Postulación guardada exitosamente',
+            })
     }
 
     return (

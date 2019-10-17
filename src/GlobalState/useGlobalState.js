@@ -10,7 +10,13 @@ const State = {
         incentivo: "",
         referencia: ""
     },
-    currentIed: ""
+    evalData: {
+        id: "",
+        name: "",
+        evaluated: []
+    },
+    currentIed: "",
+    singleEvaluator: ""
 }
 
 const useGlobalState = () => {

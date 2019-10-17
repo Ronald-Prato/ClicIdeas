@@ -126,18 +126,8 @@ const UserCreator = () => {
 
     ])
     const [auth, setAuth] = useState([
-        { u: "RED_NODO_14", p: "QjKFCOf" },
-        { u: "RED_NODO_15", p: "osJWYXA" },
-        { u: "RED_NODO_16", p: "VcveAEu" },
-        { u: "RED_NODO_17", p: "KrnNxhH" },
-        { u: "RED_NODO_18", p: "nFhMoPQ" },
-        { u: "RED_NODO_19", p: "FQoRfnK" },
-        { u: "RED_NODO_20", p: "cMjmfda" },
-        { u: "RED_NODO_21", p: "yLbwkrA" },
-        { u: "RED_NODO_22", p: "vNRpcHG" },
-        { u: "RED_NODO_23", p: "TcyUsWY" },
-        { u: "RED_NODO_24", p: "SwvWsPy" },
-        { u: "RED_NODO_25", p: "JeoTmNb" }
+        { u: "PER_211001076958", p: "UgrFcQM" },
+        { u: "DIS_111001013293", p: "PleNtGg" }
     ])
 
     const GenerateUsers = data => {

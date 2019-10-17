@@ -9,6 +9,8 @@ import Eval from './Components/Eval'
 import UserProfile from './Components/UserProfile'
 import SpashScreen from './Components/SplashScreen'
 import UsersGenerator from './Components/UsersCreator'
+import Admin from './Components/Admin'
+import CSV from './Components/csv'
 
 
 function App() {
@@ -22,7 +24,9 @@ function App() {
         <Route component={Eval} path="/eval" />
         <Route component={UserProfile} path="/user-profile" />
         <Route component={SpashScreen} path="/splash" />
+        <Route component={Admin} path="/admin" />
         <Route component={UsersGenerator} path="/generate-users" />
+        <Route component={CSV} path="/csv" />
       </Switch>
     </BrowserRouter>
   );

@@ -92,7 +92,7 @@ const FormCommon = props => {
                         }){
                             items {
                                 personaResponsable correoResponsable 
-                                tematicaProyecto tituloProyecto
+                                tematicaProyecto tituloProyecto otraTematica
                                 telefonoResponsable id c1 c2 downloadRoute
                             }
                         }
@@ -108,6 +108,7 @@ const FormCommon = props => {
                 tituloProyecto: response.tituloProyecto,
                 telfResponsable: response.telefonoResponsable,
             })
+            await setOtraTematica(response.otraTematica)
             await setCurrentRequestID(response.id)
             await setCheckInputs({ c1: response.c1, c2: response.c2 })
             await getCurrentAnexFile(response.downloadRoute, userObj.id)
@@ -161,11 +162,12 @@ const FormCommon = props => {
                 telefonoResponsable: fields.telfResponsable,
                 tituloProyecto: fields.tituloProyecto,
                 tematicaProyecto: fields.tematicaProyecto,
-                downloadRoute: file2.filename2,
+                downloadRoute: file2.filename2 || " ",
                 otraTematica: otraTematica || " ",
                 madeBy: state.userData.username,
                 c1: checkInputs.c1,
-                c2: checkInputs.c2
+                c2: checkInputs.c2,
+                retro: false
             }
         }))
 
@@ -194,13 +196,13 @@ const FormCommon = props => {
                 .then(res => {
                     setLoading(false)
                     setUpload({ ...upload, show: false })
-                    showAlert()
+                    showAlert("create")
                     checkCurrentSession()
                 })
                 .catch(err => { setLoading(false); console.log(err) });
         } else {
             setUpload({ ...upload, show: false })
-            showAlert()
+            showAlert("create")
             checkCurrentSession()
         }
     }
@@ -215,7 +217,7 @@ const FormCommon = props => {
                     telefonoResponsable: "${fields.telfResponsable}",
                     tituloProyecto: "${fields.tituloProyecto}",
                     tematicaProyecto: "${fields.tematicaProyecto}",
-                    downloadRoute: "${file2.filename2}",
+                    downloadRoute: "${file2.filename2 || anx.name}",
                     otraTematica: "${otraTematica || " "}"
                     c1: ${ checkInputs.c1},
                     c2: ${ checkInputs.c2}
@@ -261,13 +263,13 @@ const FormCommon = props => {
                 .then(res => {
                     setLoading(false)
                     setUpload({ ...upload, show: false })
-                    showAlert()
+                    showAlert("update")
                     checkCurrentSession()
                 })
                 .catch(err => { setLoading(false); console.log(err) });
         } else {
             setUpload({ ...upload, show: false })
-            showAlert()
+            showAlert("update")
             checkCurrentSession()
         }
     }
@@ -291,11 +293,17 @@ const FormCommon = props => {
         timer: 3000
     })
 
-    const showAlert = () => {
-        Toast.fire({
-            type: 'success',
-            title: 'Postulación enviada exitosamente',
-        })
+    const showAlert = option => {
+        option === "create" ?
+            Toast.fire({
+                type: 'success',
+                title: 'Postulación enviada exitosamente',
+            })
+            :
+            Toast.fire({
+                type: 'success',
+                title: 'Postulación guardada exitosamente',
+            })
     }
 
 
