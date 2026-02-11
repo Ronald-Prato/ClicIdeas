@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "antd": "^3.23.2",
-    "aws-amplify": "^1.1.38",
+    "aws-amplify": "^6.16.2",
     "filepond": "^4.6.1",
     "react": "^16.9.0",
     "react-csv": "^1.1.1",
